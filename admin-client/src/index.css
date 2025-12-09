@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background-color: #1dc9a0;
+}
+
+input:checked+.slider:before {
+  transform: translateX(14px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
+@layer components {
+  /* Toolbar Styling */
+  .custom-quill .ql-toolbar {
+    @apply bg-gray-50 border-b border-gray-200 rounded-t-lg;
+  }
+
+  /* Editor Box */
+  .custom-quill .ql-container {
+    @apply border-none rounded-b-lg;
+  }
+
+  .custom-quill .ql-editor {
+    @apply p-3 text-gray-800 leading-relaxed;
+    min-height: 6rem; /* Adjust height */
+  }
+
+  /* Active Button */
+  .custom-quill .ql-toolbar button.ql-active {
+    @apply bg-green-500 text-white rounded;
+  }
+
+  /* Hover Buttons */
+  .custom-quill .ql-toolbar button:hover {
+    @apply bg-green-100 rounded;
+  }
+}
